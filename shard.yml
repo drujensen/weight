@@ -1,0 +1,17 @@
+name: weight
+version: 0.1.0
+
+authors:
+  - Dru Jensen <drujensen@gmail.com>
+
+targets:
+  weight:
+    main: src/weight.cr
+
+crystal: 0.24.2
+
+license: MIT
+
+dependencies:
+  shainet:
+    github: NeuraLegion/shainet
