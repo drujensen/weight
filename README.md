@@ -1,22 +1,41 @@
 # weight
 
-TODO: Write a description here
+Example SHAInet model to perform linear regression using Height/Weight.
+
+Below is a Keras equivalent model:
+```python
+import pandas as pd
+from keras.models import Sequential 
+from keras.layers import Dense
+from keras.optimizers import SGD
+
+df = pd.read_csv('./data/weight-height.csv')
+
+X = df[['Height']].values
+Y = df['Weight'].values
+
+model = Sequential()
+model.add(Dense(1, input_shape=(1,)))
+model.compile(Adam(lr=0.8), 'mean_squared_error')
+model.fit(X, Y, epochs=40)
+model.predict([75])
+```
 
 ## Installation
 
-TODO: Write installation instructions here
+Requires Crystal 0.24.2
 
 ## Usage
 
-TODO: Write usage instructions here
+`crystal src/weight.cr`
 
 ## Development
 
-TODO: Write development instructions here
+Experimenting with different models.  Currently Adam is failing with NaN errors.  SGDM seems to provide fairly accurate results.
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/weight/fork )
+1. Fork it ( https://github.com/drujensen/weight/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -24,4 +43,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Dru Jensen - creator, maintainer
+- [drujensen](https://github.com/drujensen) Dru Jensen - creator, maintainer
