@@ -2,5 +2,5 @@ version: 1.0
 shards:
   shainet:
     github: drujensen/shainet
-    commit: 1141e3f27bc4ef530d2d10d006e01ec979cf56f3
+    commit: 119a54d7a5478fc3e564888bddba3e21fcd54b5c
 

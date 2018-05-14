@@ -6,7 +6,7 @@ inputs = Array(Array(Float64)).new
 outputs = Array(Array(Float64)).new
 
 # read the file
-raw = File.read("./data/data.csv")
+raw = File.read("./data/weight-height.csv")
 csv = CSV.new(raw, headers: true)
 
 # load the data structures
@@ -27,16 +27,7 @@ model.add_layer(:output, 1, :memory, SHAInet.none)
 model.fully_connect
 
 # train the network
-model.train(training.data, :sgdm, :mse, 10000, -1.0)
+model.train(training.data, :sgdm, :mse, 1000, -1.0)
 
-results = model.run(training.normalize_inputs([1.47]))
-puts training.denormalize_outputs(results)
-
-results = model.run(training.normalize_inputs([1.65]))
-puts training.denormalize_outputs(results)
-
-results = model.run(training.normalize_inputs([1.83]))
-puts training.denormalize_outputs(results)
-
-results = model.run(training.normalize_inputs([2.0]))
+results = model.run(training.normalize_inputs([75]))
 puts training.denormalize_outputs(results)
