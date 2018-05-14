@@ -29,5 +29,11 @@ model.fully_connect
 # train the network
 model.train(training.data, :sgdm, :mse, 1000, -1.0)
 
+results = model.run(training.normalize_inputs([55]))
+puts training.denormalize_outputs(results)
+
 results = model.run(training.normalize_inputs([75]))
+puts training.denormalize_outputs(results)
+
+results = model.run(training.normalize_inputs([80]))
 puts training.denormalize_outputs(results)
