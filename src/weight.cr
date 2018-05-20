@@ -28,7 +28,15 @@ model.fully_connect
 
 # train the network
 model.learning_rate = 0.01
-model.train(training.data, :sgdm, :mse, 200, -1.0)
+model.train(training.data, :sgdm, :mse, 200, -1.0, 10)
 
-results = model.run(training.normalize_inputs([75]))
-puts training.denormalize_outputs(results)
+results = Array(Float64).new
+results << model.run([0])[0].round(8)
+results << model.run([0.25])[0].round(8)
+results << model.run([0.5])[0].round(8)
+results << model.run([0.75])[0].round(8)
+results << model.run([1])[0].round(8)
+
+puts results
+# results = model.run(training.normalize_inputs([75]))
+# puts training.denormalize_outputs(results)
