@@ -16,7 +16,7 @@ Y = df['Weight'].values
 
 model = Sequential()
 model.add(Dense(1, input_shape=(1,)))
-model.compile(Adam(lr=0.8), 'mean_squared_error')
+model.compile(SGD(lr=0.01), 'mean_squared_error')
 model.fit(X, Y, epochs=40)
 model.predict([75])
 ```
